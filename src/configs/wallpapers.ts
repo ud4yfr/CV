@@ -1,8 +1,10 @@
 import type { WallpaperData } from "~/types";
 
+const base = import.meta.env.BASE_URL;
+
 const wallpapers: WallpaperData = {
-  day: "img/ui/c64c0dcebbcde554f9f69ea4253bd35d.jpg",
-  night: "img/ui/c64c0dcebbcde554f9f69ea4253bd35d.jpg"
+  day: `${base}img/ui/8c0c3ebb637964293a71221f32a8f176.jpg`,
+  night: `${base}img/ui/8c0c3ebb637964293a71221f32a8f176.jpg`
 };
 
 export default wallpapers;

@@ -48,13 +48,6 @@ const bear: BearData[] = [
         file: "markdown/about-site.md",
         icon: "i-la:laptop-code",
         excerpt: "macOS desktop simulation built with React, Zustand, UnoCSS, and Vite..."
-      },
-      {
-        id: "github-stats",
-        title: "Github Stats",
-        file: "markdown/github-stats.md",
-        icon: "i-la:github",
-        excerpt: "Contribution stats and most used languages..."
       }
     ]
   }

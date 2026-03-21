@@ -59,7 +59,7 @@ const websites: WebsitesData = {
       },
       {
         id: "docker",
-        title: "Docker Hub",
+        title: "Docker",
         img: "img/sites/docker.svg",
         link: "https://hub.docker.com/"
       },

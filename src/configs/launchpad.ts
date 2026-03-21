@@ -9,7 +9,7 @@ const launchpadApps: LaunchpadData[] = [
   },
   {
     id: "lp-docker",
-    title: "Docker Hub",
+    title: "Docker",
     img: "img/sites/docker.svg",
     link: "https://hub.docker.com/"
   },

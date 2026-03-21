@@ -10,7 +10,7 @@ const apps: AppsData[] = [
   },
   {
     id: "bear",
-    title: "Uday",
+    title: "Profile",
     desktop: true,
     width: 1040,
     height: 660,

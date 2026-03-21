@@ -190,10 +190,10 @@ const Content = ({ contentID, contentURL }: ContentProps) => {
 const Bear = () => {
   const [state, setState] = useState<BearState>({
     curSidebar: 0,
-    curMidbar: 0,
+    curMidbar: 3,
     midbarList: bear[0].md,
-    contentID: bear[0].md[0].id,
-    contentURL: bear[0].md[0].file
+    contentID: bear[0].md[3].id,
+    contentURL: bear[0].md[3].file
   });
 
   const setMidBar = (items: BearMdData[], index: number) => {

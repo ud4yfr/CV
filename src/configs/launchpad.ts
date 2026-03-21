@@ -42,12 +42,6 @@ const launchpadApps: LaunchpadData[] = [
     title: "Songsterr",
     img: "img/sites/songsterr.png",
     link: "https://www.songsterr.com/"
-  },
-  {
-    id: "lp-leetcode",
-    title: "LeetCode",
-    img: "img/sites/leetcode.svg",
-    link: "https://leetcode.com/"
   }
 ];
 

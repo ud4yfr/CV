@@ -68,6 +68,18 @@ const websites: WebsitesData = {
         title: "Songsterr",
         img: "img/sites/songsterr.png",
         link: "https://www.songsterr.com/"
+      },
+      {
+        id: "n8n",
+        title: "n8n",
+        img: "img/sites/n8n.svg",
+        link: "https://n8n.io/"
+      },
+      {
+        id: "openrouter",
+        title: "OpenRouter",
+        img: "img/sites/openrouter.svg",
+        link: "https://openrouter.ai/"
       }
     ]
   }

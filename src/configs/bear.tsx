@@ -33,7 +33,8 @@ const bear: BearData[] = [
         title: "Projects",
         file: "markdown/projects.md",
         icon: "i-la:rocket",
-        excerpt: "Real Estate Intelligence Agent, Personalized Cold Email Agent..."
+        excerpt:
+          "Real Estate Intelligence Agent, Cold Email Agent, Self-Hosted Homelab..."
       }
     ]
   },

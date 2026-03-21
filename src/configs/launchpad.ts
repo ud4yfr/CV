@@ -42,6 +42,18 @@ const launchpadApps: LaunchpadData[] = [
     title: "Songsterr",
     img: "img/sites/songsterr.png",
     link: "https://www.songsterr.com/"
+  },
+  {
+    id: "lp-n8n",
+    title: "n8n",
+    img: "img/sites/n8n.svg",
+    link: "https://n8n.io/"
+  },
+  {
+    id: "lp-openrouter",
+    title: "OpenRouter",
+    img: "img/sites/openrouter.svg",
+    link: "https://openrouter.ai/"
   }
 ];
 

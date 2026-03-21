@@ -34,6 +34,7 @@ const apps: AppsData[] = [
     title: "Safari",
     desktop: true,
     width: 1120,
+    height: 700,
     minWidth: 375,
     minHeight: 200,
     x: -20,

@@ -66,6 +66,12 @@ const launchpadApps: LaunchpadData[] = [
     title: "Ollama",
     img: "img/sites/ollama.svg",
     link: "https://ollama.com/"
+  },
+  {
+    id: "lp-obsidian",
+    title: "Obsidian",
+    img: "img/sites/obsidian.svg",
+    link: "https://obsidian.md/"
   }
 ];
 

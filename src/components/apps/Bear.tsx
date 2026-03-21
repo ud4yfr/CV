@@ -69,7 +69,7 @@ const Sidebar = ({ cur, setMidBar }: SidebarProps) => {
           <li
             key={`bear-sidebar-${item.id}`}
             className={`pl-6 h-8 hstack cursor-default ${
-              cur === index ? "bg-red-500" : "bg-transparent"
+              cur === index ? "bg-blue-500" : "bg-transparent"
             } ${cur === index ? "" : "hover:bg-gray-600"}`}
             onClick={() => setMidBar(item.md, index)}
           >
@@ -90,7 +90,7 @@ const Middlebar = ({ items, cur, setContent }: MiddlebarProps) => {
           key={`bear-midbar-${item.id}`}
           className={`h-24 flex flex-col cursor-default border-l-2 ${
             cur === index
-              ? "border-red-500 bg-white dark:bg-gray-900"
+              ? "border-blue-500 bg-white dark:bg-gray-900"
               : "border-transparent bg-transparent"
           } hover:(bg-white dark:bg-gray-900)`}
           onClick={() => setContent(item.id, item.file, index)}

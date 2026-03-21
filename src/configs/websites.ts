@@ -80,6 +80,42 @@ const websites: WebsitesData = {
         title: "OpenRouter",
         img: "img/sites/openrouter.svg",
         link: "https://openrouter.ai/"
+      },
+      {
+        id: "linkedin",
+        title: "LinkedIn",
+        img: "img/sites/linkedin.svg",
+        link: "https://www.linkedin.com/in/uday-patil-954854231/"
+      },
+      {
+        id: "proxmox",
+        title: "Proxmox",
+        img: "img/sites/proxmox.svg",
+        link: "https://www.proxmox.com/"
+      },
+      {
+        id: "tailscale",
+        title: "Tailscale",
+        img: "img/sites/tailscale.svg",
+        link: "https://tailscale.com/"
+      },
+      {
+        id: "supabase",
+        title: "Supabase",
+        img: "img/sites/supabase.svg",
+        link: "https://supabase.com/"
+      },
+      {
+        id: "linux",
+        title: "Linux",
+        img: "img/sites/linux.svg",
+        link: "https://www.linux.org/"
+      },
+      {
+        id: "ollama",
+        title: "Ollama",
+        img: "img/sites/ollama.svg",
+        link: "https://ollama.com/"
       }
     ]
   }

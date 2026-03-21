@@ -8,12 +8,6 @@ const launchpadApps: LaunchpadData[] = [
     link: "https://github.com/ud4yfr"
   },
   {
-    id: "lp-linkedin",
-    title: "LinkedIn",
-    img: "img/sites/linkedin.svg",
-    link: "https://www.linkedin.com/in/uday-patil-954854231/"
-  },
-  {
     id: "lp-docker",
     title: "Docker Hub",
     img: "img/sites/docker.svg",
@@ -26,24 +20,6 @@ const launchpadApps: LaunchpadData[] = [
     link: "https://claude.ai/"
   },
   {
-    id: "lp-reddit",
-    title: "Reddit",
-    img: "img/sites/reddit.svg",
-    link: "https://www.reddit.com/"
-  },
-  {
-    id: "lp-monkeytype",
-    title: "Monkeytype",
-    img: "img/sites/monkeytype.svg",
-    link: "https://monkeytype.com/"
-  },
-  {
-    id: "lp-songsterr",
-    title: "Songsterr",
-    img: "img/sites/songsterr.png",
-    link: "https://www.songsterr.com/"
-  },
-  {
     id: "lp-n8n",
     title: "n8n",
     img: "img/sites/n8n.svg",
@@ -54,6 +30,42 @@ const launchpadApps: LaunchpadData[] = [
     title: "OpenRouter",
     img: "img/sites/openrouter.svg",
     link: "https://openrouter.ai/"
+  },
+  {
+    id: "lp-gemini",
+    title: "Gemini",
+    img: "img/sites/gemini.svg",
+    link: "https://gemini.google.com/"
+  },
+  {
+    id: "lp-proxmox",
+    title: "Proxmox",
+    img: "img/sites/proxmox.svg",
+    link: "https://www.proxmox.com/"
+  },
+  {
+    id: "lp-tailscale",
+    title: "Tailscale",
+    img: "img/sites/tailscale.svg",
+    link: "https://tailscale.com/"
+  },
+  {
+    id: "lp-supabase",
+    title: "Supabase",
+    img: "img/sites/supabase.svg",
+    link: "https://supabase.com/"
+  },
+  {
+    id: "lp-linux",
+    title: "Linux",
+    img: "img/sites/linux.svg",
+    link: "https://www.linux.org/"
+  },
+  {
+    id: "lp-ollama",
+    title: "Ollama",
+    img: "img/sites/ollama.svg",
+    link: "https://ollama.com/"
   }
 ];
 

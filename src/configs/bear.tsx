@@ -11,30 +11,28 @@ const bear: BearData[] = [
         title: "About Me",
         file: "markdown/about-me.md",
         icon: "i-la:dragon",
-        excerpt:
-          "Sophomore at Rutgers studying Economics and Data Science, building AI systems..."
+        excerpt: "The short version."
       },
       {
         id: "skills",
         title: "Skills",
         file: "markdown/skills.md",
         icon: "i-la:tools",
-        excerpt: "Python, FastAPI, Supabase, LLM pipelines, Docker, Proxmox..."
+        excerpt: "What I work with."
       },
       {
         id: "experience",
         title: "Experience",
         file: "markdown/experience.md",
         icon: "i-la:briefcase",
-        excerpt: "WorkOptional.ai, LangBuddy AI, PUMA Group, Shinde Associates..."
+        excerpt: "Where I've been."
       },
       {
         id: "projects",
         title: "Projects",
         file: "markdown/projects.md",
         icon: "i-la:rocket",
-        excerpt:
-          "Real Estate Intelligence Agent, Cold Email Agent, Self-Hosted Homelab..."
+        excerpt: "What I've built."
       }
     ]
   },
@@ -48,7 +46,7 @@ const bear: BearData[] = [
         title: "About This Site",
         file: "markdown/about-site.md",
         icon: "i-la:laptop-code",
-        excerpt: "macOS desktop simulation built with React, Zustand, UnoCSS, and Vite..."
+        excerpt: "How this was made."
       }
     ]
   }

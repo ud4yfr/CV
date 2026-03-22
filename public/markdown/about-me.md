@@ -1,9 +1,13 @@
 # About Me
 
-I'm Uday, sophomore at Rutgers studying Economics and Data Science. Most of my time goes into building AI systems, specifically multi-agent backends and automation pipelines. I work mainly in Python with FastAPI and Supabase, and I've gotten pretty deep into LLM orchestration and agentic design patterns.
+I build AI systems, as I like things that work when I'm not looking. Multi-agent backends, orchestration, automation that runs on its own.
 
-Outside of that, I run a homelab (Proxmox, Docker, the whole thing) and play guitar and synth.
+When I'm not doing that, I'm probably playing guitar, patching my synth, or SSH'd into my homelab. I pick up whatever interests me and go deep.
+
+Economics & Data Science at Rutgers, when I'm not doing any of it.
 
 - Email: [udayadityapatil.99@gmail.com](mailto:udayadityapatil.99@gmail.com)
+
 - Github: [@ud4yfr](https://github.com/ud4yfr)
+
 - LinkedIn: [Uday Patil](https://www.linkedin.com/in/uday-patil-954854231/)

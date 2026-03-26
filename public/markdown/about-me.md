@@ -1,6 +1,6 @@
 # About Me
 
-I build AI systems, as I like things that work when I'm not looking. Multi-agent backends, orchestration, automation that runs on its own.
+I build AI systems. Multi-agent backends, orchestration, automation that runs on its own.
 
 When I'm not doing that, I'm probably playing guitar, patching my synth, or SSH'd into my homelab. I pick up whatever interests me and go deep.
 

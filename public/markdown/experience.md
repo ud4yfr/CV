@@ -3,7 +3,7 @@
 ### Growth Intern — Runway
 *Summer 2026*
 
-- Driving organic user acquisition for a 32,000-user SaaS platform through a structured LinkedIn content strategy
+- Driving organic user acquisition for a 100,000-user SaaS platform through a structured LinkedIn content strategy
 - Shipping 5+ posts/week optimized against platform algorithm signals to grow reach and early-hour engagement
 
 ### Forward Deployed Engineer Intern — WorkOptional.ai

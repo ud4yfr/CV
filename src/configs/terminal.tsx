@@ -133,7 +133,7 @@ const terminal: TerminalData[] = [
           <div className="py-1">
             <div className="text-yellow-300 font-bold">Runway — Growth Intern</div>
             <div className="mt-1">
-              Driving organic user acquisition for a 32,000-user SaaS platform through a
+              Driving organic user acquisition for a 100,000-user SaaS platform through a
               structured LinkedIn content strategy — 5+ posts/week optimized against
               platform algorithm signals for reach and early-hour engagement.
             </div>

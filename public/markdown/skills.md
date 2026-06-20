@@ -1,8 +1,10 @@
 # Skills
 
-**Languages & Frameworks:** Python (pandas, numpy, matplotlib, async pipelines), R (tidyverse, ggplot2), JavaScript, FastAPI, httpx, APScheduler, supabase-py, Docker
+**Languages & Frameworks:** Python (pandas, numpy, async pipelines, LLM function schemas, structured JSON output), R (tidyverse, ggplot2), JavaScript, FastAPI, httpx, APScheduler, supabase-py, Docker
 
-**AI & Automation:** n8n workflows, Apify Actors & web scraping, OpenRouter APIs, LLM pipelines, prompt engineering, agentic design patterns, multi-agent collaboration, AI feedback loops
+**Data & Statistics:** EDA, regression, logistic regression, bootstrapping, confidence intervals, hypothesis testing, ANOVA
+
+**AI & Automation:** LLM pipelines, multi-agent design, prompt engineering, OpenRouter APIs, n8n automation, AI feedback loops, UTM attribution modeling
 
 **Databases:** Supabase (RLS, realtime subscriptions, multi-tenant schema design), vector databases, ranking and relevance scoring
 

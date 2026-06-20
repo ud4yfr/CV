@@ -1,5 +1,38 @@
-*.log
-.DS_Store
-.cache/
+# Dependencies
 node_modules/
+.pnpm-store/
+
+# Build output
 dist/
+dist-ssr/
+
+# Cache
+.cache/
+.vite/
+*.local
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# AI / internal dev notes
+CLAUDE.md
+progress.md
+todo.md
+*.canvas.tsx
+
+# Environment
+.env
+.env.*
+!.env.example

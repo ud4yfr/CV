@@ -13,10 +13,10 @@ const terminal: TerminalData[] = [
         content: (
           <div className="py-1">
             <div>
-              Hi, I'm Uday — sophomore at Rutgers studying Economics & Data Science. I
-              build multi-agent AI systems, automation pipelines, and backend services
-              with Python, FastAPI, and Supabase. I also run a homelab and play guitar and
-              synth.
+              Hi, I'm Uday — sophomore at Rutgers studying Data Science & Economics. I
+              build production AI systems — multi-agent pipelines, automation backends,
+              self-hosted infra. Python, FastAPI, Supabase. I also run a homelab and play
+              guitar and synth.
             </div>
           </div>
         )
@@ -113,42 +113,45 @@ const terminal: TerminalData[] = [
         content: (
           <div className="py-1">
             <div className="text-yellow-300 font-bold">
-              WorkOptional.ai — AI Systems Engineer
+              WorkOptional.ai — Forward Deployed Engineer Intern
             </div>
             <div className="mt-1">
-              6-agent Python/FastAPI marketing automation system. UTM attribution across 6
-              platforms, AI feedback loops with confidence scoring, multi-tenant Supabase
-              schema with RLS. Deployed on Railway.
+              Built RevenuesRocket — a full AI marketing agent for a Thai wellness
+              platform (Sabai) automating content across 6 social channels and 2 messaging
+              apps in 3 languages. Two-pass validation pipeline (15 deterministic checks +
+              LLM judgment), history-aware variety enforcement, HITL approval dashboard,
+              and UTM attribution via Buffer, GoHighLevel, and Google Calendar API.
             </div>
           </div>
         )
       },
       {
-        id: "proj-realestate",
-        title: "realestate-agent.txt",
+        id: "proj-runway",
+        title: "runway.txt",
         type: "file",
         content: (
           <div className="py-1">
-            <div className="text-yellow-300 font-bold">
-              Real Estate Intelligence Agent
-            </div>
+            <div className="text-yellow-300 font-bold">Runway — Growth Intern</div>
             <div className="mt-1">
-              Apify + n8n + OpenRouter pipeline that scrapes listings, generates automated
-              summaries and weekly market reports.
+              Driving organic user acquisition for a 32,000-user SaaS platform through a
+              structured LinkedIn content strategy — 5+ posts/week optimized against
+              platform algorithm signals for reach and early-hour engagement.
             </div>
           </div>
         )
       },
       {
-        id: "proj-coldemail",
-        title: "cold-email-agent.txt",
+        id: "proj-openclaw",
+        title: "openclaw.txt",
         type: "file",
         content: (
           <div className="py-1">
-            <div className="text-yellow-300 font-bold">Personalized Cold Email Agent</div>
+            <div className="text-yellow-300 font-bold">OpenClaw — RAG + WhatsApp</div>
             <div className="mt-1">
-              n8n + OpenRouter workflow that generates personalized outreach emails and
-              handles automated sequencing and sending.
+              Self-hosted retrieval-augmented generation assistant with WhatsApp
+              integration for natural-language queries over a private document corpus.
+              Designed the full ingestion and retrieval pipeline: chunking, embedding,
+              vector search, deployed on self-managed infra.
             </div>
           </div>
         )

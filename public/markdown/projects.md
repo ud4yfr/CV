@@ -1,23 +1,18 @@
 # Projects
 
-### Real Estate Intelligence Agent
-*Apify, n8n, OpenRouter*
+### OpenClaw
+*Python, RAG, vector DB, WhatsApp API, self-hosted*
 
-Scrapes listing data and generates automated summaries and weekly reports. Basically a pipeline that watches the market so you don't have to.
-
-### Personalized Cold Email Agent
-*n8n, OpenRouter*
-
-Generates personalized outreach emails and handles the sequencing and sending automatically.
+Built a self-hosted retrieval-augmented generation (RAG) assistant with WhatsApp integration for natural-language queries over a private document corpus. Designed the full ingestion and retrieval pipeline — chunking, embedding, vector search — and deployed it on self-managed infrastructure.
 
 ---
 
 ## Homelab
 
 ### Self-Hosted Infrastructure
-*Proxmox, Docker, LXC, Tailscale, Nginx*
+*Proxmox, LXC, Docker, Tailscale, Nginx, Pi-hole*
 
-Built and maintain a self-hosted homelab running Proxmox as the hypervisor with Docker containers and LXC for isolated services. Everything is networked over Tailscale for secure remote access from anywhere — campus, travel, wherever.
+Built and maintain a self-hosted homelab on a Lenovo ThinkCentre M720q running Proxmox as the hypervisor with Docker containers and LXC for isolated services. Everything is networked over Tailscale for secure remote access from anywhere — campus, travel, wherever.
 
 ### Services Running
 - **Pi-hole** — network-wide ad blocking and DNS filtering

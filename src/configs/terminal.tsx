@@ -133,9 +133,51 @@ const terminal: TerminalData[] = [
           <div className="py-1">
             <div className="text-yellow-300 font-bold">Runway — Growth Intern</div>
             <div className="mt-1">
-              Driving organic user acquisition for a 100,000-user SaaS platform through a
+              Driving organic user acquisition for a 32,000-user SaaS platform through a
               structured LinkedIn content strategy — 5+ posts/week optimized against
               platform algorithm signals for reach and early-hour engagement.
+            </div>
+          </div>
+        )
+      },
+      {
+        id: "proj-foxroku",
+        title: "fox-roku-event-study.txt",
+        type: "file",
+        content: (
+          <div className="py-1">
+            <div className="text-yellow-300 font-bold">
+              Fox Corp / Roku Acquisition Event Study
+            </div>
+            <div className="text-gray-400 text-sm mt-0.5">
+              Python, statsmodels, yfinance, scipy, SEC EDGAR
+            </div>
+            <div className="mt-1">
+              Two-sided CAR event study of Fox Corp's $22B Roku acquisition. OLS market
+              model over 251-day estimation window. CARs: -25.7% FOXA (t = -8.48, p &lt;
+              0.001) and +12.6% ROKU (t = 3.12, p = 0.002). ~38pp spread consistent with
+              acquirer overpayment and pre-announcement leakage.
+            </div>
+          </div>
+        )
+      },
+      {
+        id: "proj-bnpl",
+        title: "affirm-klarna-stress-test.txt",
+        type: "file",
+        content: (
+          <div className="py-1">
+            <div className="text-yellow-300 font-bold">
+              Affirm vs Klarna BNPL Credit Stress Test
+            </div>
+            <div className="text-gray-400 text-sm mt-0.5">
+              Python, scipy, Monte Carlo, SEC filings
+            </div>
+            <div className="mt-1">
+              Per-$100-of-exposure unit economics framework stress-testing both firms'
+              loan books. Beta MLE on Affirm's 7-quarter NCO history. 4.3x fragility gap:
+              Affirm ~5.4pp buffer, Klarna ~1.2pp — Affirm's 71% interest-bearing book
+              absorbs losses; Klarna's fee-only model does not.
             </div>
           </div>
         )

@@ -1,11 +1,9 @@
 # Skills
 
-**Languages & Frameworks:** Python (pandas, numpy, scipy, statsmodels, matplotlib, yfinance, async pipelines, LLM function schemas, structured JSON output), R (tidyverse, ggplot2), JavaScript, FastAPI, httpx, APScheduler, supabase-py, Docker
+**Languages & Frameworks:** Python (pandas, NumPy, SciPy, statsmodels), R (tidyverse, ggplot2), Stata, JavaScript, React, FastAPI
 
-**Econometrics & Statistics:** OLS regression, event study (CAR), Monte Carlo simulation, MLE, difference-in-differences, logistic regression, bootstrapping, confidence intervals, hypothesis testing, ANOVA
+**AI & Automation:** LLM pipelines, multi-agent systems, RAG, context engineering, LLM cost optimization, prompt engineering, OpenRouter APIs, n8n
 
-**AI & Automation:** LLM pipelines, multi-agent design, prompt engineering, OpenRouter APIs, n8n automation, AI feedback loops, UTM attribution modeling
+**Statistics & Econometrics:** multivariate OLS, model specification, robust standard errors, causal inference, event studies, difference-in-differences, MLE, Monte Carlo simulation, logistic regression
 
-**Databases:** Supabase (RLS, realtime subscriptions, multi-tenant schema design), vector databases, ranking and relevance scoring
-
-**Infrastructure & DevOps:** Proxmox, LXC containers, Docker & Docker Compose, Nginx reverse proxy, Tailscale VPN, DNS management, Linux administration
+**Databases & Infrastructure:** Supabase, vector databases, Docker, Proxmox, LXC, Nginx, Tailscale, Linux administration

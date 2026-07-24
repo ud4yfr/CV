@@ -1,32 +1,25 @@
 # Experience
 
-### Growth Intern — Runway
-*Summer 2026*
+### AI Engineer Intern — BookNOrbit
+*Remote | Jul 2026 – Present*
 
-- Driving organic user acquisition for a 32,000-user SaaS platform through a structured LinkedIn content strategy
-- Shipping 5+ posts/week optimized against platform algorithm signals to grow reach and early-hour engagement
+- Develop and maintain customer-facing websites and internal admin dashboards across multiple client projects, translating project requirements into production features.
+- Diagnose and resolve bugs across frontend and backend workflows, ship feature improvements, and support ongoing application maintenance.
+- Collaborate with internal teams to scope client requests and implement operational tooling and workflow automations.
+
+### Growth Intern — Runway
+*Remote | Summer 2026*
+
+- Drove organic acquisition for a 100,000+ user SaaS platform through a structured LinkedIn strategy, shipping 5+ posts/week optimized for reach and early-hour engagement.
 
 ### Forward Deployed Engineer Intern — WorkOptional.ai
-*Dec 2025 – Present*
+*Remote | Dec 2025 – Jul 2026*
 
-- Owned end-to-end design and build of RevenuesRocket — a full AI marketing agent for a Thai wellness platform (Sabai) engineered to automate content across 6 social channels and 2 messaging apps in 3 languages; built on Python, React, Claude via OpenRouter, Supabase, Puppeteer, and Remotion
-- Engineered a two-pass validation pipeline (15 deterministic rule checks followed by an LLM judgment pass) with auto-rewrite on failure, ensuring zero brand violations reached the human approval queue
-- Designed history-aware content variety enforcement so the agent checks prior output logs before each run to prevent repeated hooks, overused personas, and repeated emotional tone
-- Built a human-in-the-loop approval dashboard as the system's publish gate and a UTM attribution pipeline linking social posts to booking conversions across 6 platforms via Buffer, GoHighLevel, and Google Calendar API
+- Owned end-to-end design and build of RevenuesRocket, an AI marketing agent for a Thai wellness platform, automating content across 6 social channels, 2 messaging apps, and 3 languages using Python, React, Claude, Supabase, Puppeteer, and Remotion.
+- Built a human-in-the-loop approval dashboard as the system's publish gate and a UTM attribution pipeline to connect social content with booking conversions across 6 platforms via Buffer, GoHighLevel, and Google Calendar API.
+- Built and managed six audience-segmented Beehiiv drip campaigns totaling 30 emails, owning copy, CTA design, and send cadence; also owned a multi-section landing page through launch readiness.
 
 ### AI Intern — LangBuddy AI
-*Oct 2024 – Nov 2024*
+*Remote | Oct 2024 – Nov 2024*
 
-- Built automation workflows in n8n + Python + OpenRouter API that eliminated repetitive manual steps across content and support flows
-- Integrated multi-model LLM responses and automated onboarding via API triggers and structured prompt pipelines
-
-### Marketing Intern — PUMA Group
-*Jul 2023 – Aug 2023*
-
-- Analyzed consumer trends to support product positioning and digital strategy at their India office
-- Built dashboards and briefs for campaign planning
-
-### Financial Data Analyst Intern — Shinde Associates
-*Apr 2023 – Jul 2023*
-
-- Built forecasting models in R and Excel and automated visual reporting to support engineering project bids
+- Developed n8n, Python, and OpenRouter workflows that automated content, support, and onboarding processes through API triggers and structured multi-model pipelines.

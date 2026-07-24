@@ -13,10 +13,11 @@ const terminal: TerminalData[] = [
         content: (
           <div className="py-1">
             <div>
-              Hi, I'm Uday — sophomore at Rutgers studying Data Science & Economics. I
-              build production AI systems — multi-agent pipelines, automation backends,
-              self-hosted infra. Python, FastAPI, Supabase. I also run a homelab and play
-              guitar and synth.
+              Hi, I'm Uday — Data Science & Economics student at Rutgers. I build
+              production AI systems and point them at real business problems — multi-agent
+              LLM pipelines, self-hosted infrastructure, end-to-end automations. Strong
+              foundation in data analysis, statistics, and quantitative problem-solving. I
+              also run a homelab and play guitar and synth.
             </div>
           </div>
         )
@@ -26,7 +27,7 @@ const terminal: TerminalData[] = [
         title: "interests.txt",
         type: "file",
         content:
-          "AI Agents / LLM Orchestration / Backend Engineering / Self-Hosted Infra / Music Production / Synth"
+          "Self-Hosted Infra / Homelab / Guitar / Football / Basketball / Music Production / Synth"
       },
       {
         id: "about-stack",
@@ -36,27 +37,27 @@ const terminal: TerminalData[] = [
           <div className="py-1">
             <div className="grid grid-cols-2 gap-x-8 gap-y-1">
               <span>
-                <span className="text-green-300">languages:</span> Python, R, JavaScript,
-                TypeScript
+                <span className="text-green-300">languages:</span> Python, R, Stata,
+                JavaScript
               </span>
               <span>
-                <span className="text-green-300">frameworks:</span> FastAPI, React, httpx
+                <span className="text-green-300">frameworks:</span> FastAPI, React,
+                statsmodels
               </span>
               <span>
-                <span className="text-green-300">ai/ml:</span> OpenRouter, LLM pipelines,
-                n8n, Apify
+                <span className="text-green-300">ai/ml:</span> LLM pipelines, multi-agent
+                systems, RAG, n8n, OpenRouter
               </span>
               <span>
-                <span className="text-green-300">databases:</span> Supabase, Postgres,
-                vector DBs
+                <span className="text-green-300">stats:</span> OLS, event studies, DiD,
+                MLE, Monte Carlo
+              </span>
+              <span>
+                <span className="text-green-300">databases:</span> Supabase, vector DBs
               </span>
               <span>
                 <span className="text-green-300">infra:</span> Docker, Proxmox, LXC,
                 Nginx, Tailscale
-              </span>
-              <span>
-                <span className="text-green-300">tools:</span> Git, Linux, Docker Compose,
-                Railway
               </span>
             </div>
           </div>
@@ -107,6 +108,24 @@ const terminal: TerminalData[] = [
     type: "folder",
     children: [
       {
+        id: "proj-booknorbit",
+        title: "booknorbit.txt",
+        type: "file",
+        content: (
+          <div className="py-1">
+            <div className="text-yellow-300 font-bold">
+              BookNOrbit — AI Engineer Intern
+            </div>
+            <div className="mt-1">
+              Develop and maintain customer-facing websites and internal admin dashboards
+              across multiple client projects. Diagnose and resolve bugs across frontend
+              and backend workflows, ship feature improvements, and implement operational
+              tooling and workflow automations.
+            </div>
+          </div>
+        )
+      },
+      {
         id: "proj-workoptional",
         title: "workoptional.txt",
         type: "file",
@@ -116,11 +135,11 @@ const terminal: TerminalData[] = [
               WorkOptional.ai — Forward Deployed Engineer Intern
             </div>
             <div className="mt-1">
-              Built RevenuesRocket — a full AI marketing agent for a Thai wellness
-              platform (Sabai) automating content across 6 social channels and 2 messaging
-              apps in 3 languages. Two-pass validation pipeline (15 deterministic checks +
-              LLM judgment), history-aware variety enforcement, HITL approval dashboard,
-              and UTM attribution via Buffer, GoHighLevel, and Google Calendar API.
+              Built RevenuesRocket — an AI marketing agent for a Thai wellness platform
+              automating content across 6 social channels, 2 messaging apps, and 3
+              languages. HITL approval dashboard, UTM attribution via Buffer, GoHighLevel,
+              and Google Calendar API. Six Beehiiv drip campaigns (30 emails) and
+              multi-section landing page through launch readiness.
             </div>
           </div>
         )
@@ -133,9 +152,9 @@ const terminal: TerminalData[] = [
           <div className="py-1">
             <div className="text-yellow-300 font-bold">Runway — Growth Intern</div>
             <div className="mt-1">
-              Driving organic user acquisition for a 32,000-user SaaS platform through a
-              structured LinkedIn content strategy — 5+ posts/week optimized against
-              platform algorithm signals for reach and early-hour engagement.
+              Drove organic acquisition for a 100,000+ user SaaS platform through a
+              structured LinkedIn strategy — 5+ posts/week optimized for reach and
+              early-hour engagement.
             </div>
           </div>
         )
@@ -153,10 +172,10 @@ const terminal: TerminalData[] = [
               Python, statsmodels, yfinance, scipy, SEC EDGAR
             </div>
             <div className="mt-1">
-              Two-sided CAR event study of Fox Corp's $22B Roku acquisition. OLS market
-              model over 251-day estimation window. CARs: -25.7% FOXA (t = -8.48, p &lt;
-              0.001) and +12.6% ROKU (t = 3.12, p = 0.002). ~38pp spread consistent with
-              acquirer overpayment and pre-announcement leakage.
+              Two-sided CAR event study of Fox Corp's $22B Roku acquisition. 251-day OLS
+              estimation window with EDGAR-sourced disclosure timestamps. CARs: -25.7%
+              FOXA (p &lt; 0.001) and +12.6% ROKU (p = 0.002). ~38pp spread consistent
+              with acquirer overpayment and information leakage.
             </div>
           </div>
         )
@@ -174,10 +193,9 @@ const terminal: TerminalData[] = [
               Python, scipy, Monte Carlo, SEC filings
             </div>
             <div className="mt-1">
-              Per-$100-of-exposure unit economics framework stress-testing both firms'
-              loan books. Beta MLE on Affirm's 7-quarter NCO history. 4.3x fragility gap:
-              Affirm ~5.4pp buffer, Klarna ~1.2pp — Affirm's 71% interest-bearing book
-              absorbs losses; Klarna's fee-only model does not.
+              Per-$100 exposure stress test from primary SEC filings. Beta MLE on Affirm's
+              NCO history. 4.3x fragility gap: Affirm ~5.4pp buffer to breakeven vs Klarna
+              ~1.2pp — driven by Affirm's interest-bearing revenue cushion.
             </div>
           </div>
         )
@@ -190,10 +208,9 @@ const terminal: TerminalData[] = [
           <div className="py-1">
             <div className="text-yellow-300 font-bold">OpenClaw — RAG + WhatsApp</div>
             <div className="mt-1">
-              Self-hosted retrieval-augmented generation assistant with WhatsApp
-              integration for natural-language queries over a private document corpus.
-              Designed the full ingestion and retrieval pipeline: chunking, embedding,
-              vector search, deployed on self-managed infra.
+              Self-hosted RAG assistant for natural-language queries over private
+              documents. Designed the ingestion, chunking, embedding, vector-search, and
+              WhatsApp integration pipeline.
             </div>
           </div>
         )

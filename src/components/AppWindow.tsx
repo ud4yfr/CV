@@ -217,7 +217,7 @@ const Window = (props: WindowProps) => {
       id={`window-${props.id}`}
     >
       <div
-        className="window-bar relative h-6 text-center bg-c-200"
+        className="window-bar relative flex h-6 items-center justify-center text-center bg-c-200"
         onDoubleClick={() => !disableMax && props.setMax(props.id)}
       >
         <TrafficLights

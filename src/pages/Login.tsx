@@ -36,7 +36,7 @@ export default function Login(props: MacActions) {
       }}
       onClick={() => loginHandle()}
     >
-      <div className="inline-block w-auto relative top-1/2 -mt-40">
+      <div className="relative top-1/2 inline-block w-auto -mt-36 sm:-mt-40">
         {/* Avatar */}
         <img
           className="rounded-full size-24 my-0 mx-auto object-cover"
@@ -67,9 +67,9 @@ export default function Login(props: MacActions) {
       </div>
 
       {/* buttons */}
-      <div className="text-sm fixed bottom-16 inset-x-0 mx-auto flex flex-row space-x-4 w-max">
+      <div className="login-actions fixed inset-x-0 mx-auto flex w-max flex-row space-x-1 text-sm sm:space-x-4">
         <div
-          className="hstack flex-col text-white w-24 cursor-pointer"
+          className="hstack w-20 cursor-pointer flex-col text-white sm:w-24"
           onClick={(e) => props.sleepMac(e)}
         >
           <div className="flex-center size-10 bg-gray-700 rounded-full">
@@ -78,7 +78,7 @@ export default function Login(props: MacActions) {
           <span>Sleep</span>
         </div>
         <div
-          className="hstack flex-col text-white w-24 cursor-pointer"
+          className="hstack w-20 cursor-pointer flex-col text-white sm:w-24"
           onClick={(e) => props.restartMac(e)}
         >
           <div className="flex-center size-10 bg-gray-700 rounded-full">
@@ -87,7 +87,7 @@ export default function Login(props: MacActions) {
           <span>Restart</span>
         </div>
         <div
-          className="hstack flex-col text-white w-24 cursor-pointer"
+          className="hstack w-20 cursor-pointer flex-col text-white sm:w-24"
           onClick={(e) => props.shutMac(e)}
         >
           <div className="flex-center size-10 bg-gray-700 rounded-full">

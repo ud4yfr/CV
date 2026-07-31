@@ -4,10 +4,15 @@
   @apply text-white;
 }
 
+.login-actions {
+  bottom: max(2rem, calc(env(safe-area-inset-bottom) + 1rem));
+}
+
 /* --------- spotlight --------- */
 
 .spotlight {
   @apply fixed z-20 h-max top-1/4 -mt-16 w-165 -ml-82.5 left-1/2 rounded-lg backdrop-blur-2xl shadow-2xl shadow-black/40 bg-c-100/80 border border-menu;
+  max-height: calc(100dvh - 4rem);
 }
 
 .spotlight input::placeholder {
@@ -54,6 +59,15 @@
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.17);
 }
 
+.dock {
+  bottom: max(0.25rem, env(safe-area-inset-bottom));
+  scrollbar-width: none;
+}
+
+.dock::-webkit-scrollbar {
+  display: none;
+}
+
 .dock li .tooltip {
   @apply hidden;
   top: calc(-100% - 10px);
@@ -62,6 +76,70 @@
 .dock li:hover .tooltip {
   @apply block;
   box-shadow: hsla(0deg, 0%, 0%, 20%) 0px 1px 5px 2px, 0 0 0 0 white;
+}
+
+@media (max-width: 639px), (max-height: 500px) and (pointer: coarse) {
+  .mac-menu-bar .battery-status {
+    column-gap: 0.25rem;
+  }
+
+  .spotlight {
+    top: 3rem;
+    left: 0;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .spotlight-results {
+    height: auto !important;
+    max-height: calc(100dvh - 7rem);
+  }
+
+  .spotlight-list {
+    width: 100%;
+    border-right: 0;
+  }
+
+  .spotlight-details {
+    display: none;
+  }
+
+  .control-center-menu {
+    height: min(24rem, calc(100dvh - 2.75rem));
+    overflow-y: auto;
+  }
+
+  .compact-window .window-bar {
+    height: 2rem;
+  }
+
+  .compact-window .innner-window {
+    height: calc(100% - 2rem);
+  }
+
+  .compact-window .traffic-lights {
+    margin-top: 0.5rem;
+  }
+
+  .compact-window .traffic-lights .icon {
+    display: block;
+  }
+
+  .compact-window .window-btn {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+
+  .dock li .tooltip {
+    display: none;
+  }
+}
+
+@media (max-width: 280px) {
+  .mac-app-title {
+    display: none;
+  }
 }
 
 /* --------- slider --------- */

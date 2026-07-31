@@ -5,7 +5,6 @@ import { music } from "~/configs";
 import type { MacActions } from "~/types";
 
 interface TopBarItemProps {
-  hideOnMobile?: boolean;
   forceHover?: boolean;
   children: React.ReactNode;
   className?: string;
@@ -15,7 +14,6 @@ interface TopBarItemProps {
 
 const TopBarItem = forwardRef(
   (props: TopBarItemProps, ref: React.ForwardedRef<HTMLDivElement>) => {
-    const hide = props.hideOnMobile ? "hidden sm:inline-flex" : "inline-flex";
     const bg = props.forceHover
       ? "bg-gray-100/30 dark:bg-gray-400/40"
       : "hover:(bg-gray-100/30 dark:bg-gray-400/40)";
@@ -23,7 +21,7 @@ const TopBarItem = forwardRef(
     return (
       <div
         ref={ref}
-        className={`hstack space-x-1 h-6 px-1 cursor-default rounded ${hide} ${bg} ${
+        className={`hstack inline-flex space-x-1 h-6 px-1 cursor-default rounded ${bg} ${
           props.className || ""
         }`}
         onClick={props.onClick}
@@ -162,13 +160,13 @@ const TopBar = (props: TopBarProps) => {
 
   return (
     <div
-      className={`w-full h-8 px-2 fixed top-0 hstack justify-between ${
+      className={`mac-menu-bar fixed top-0 h-8 w-full px-1 sm:px-2 hstack justify-between ${
         props.hide ? "z-0" : "z-20"
-      } text-sm text-white bg-gray-700/10 backdrop-blur-2xl shadow transition`}
+      } text-xs sm:text-sm text-white bg-gray-700/10 backdrop-blur-2xl shadow transition`}
     >
-      <div className="hstack space-x-1">
+      <div className="hstack flex-none min-w-0 space-x-1">
         <TopBarItem
-          className="px-2"
+          className="px-1 sm:px-2"
           forceHover={state.showAppleMenu}
           onClick={toggleAppleMenu}
           ref={appleBtnRef}
@@ -176,7 +174,7 @@ const TopBar = (props: TopBarProps) => {
           <span className="i-ri:apple-fill text-base" />
         </TopBarItem>
         <TopBarItem
-          className="font-semibold px-2"
+          className="mac-app-title max-w-14 truncate px-1 font-semibold sm:max-w-none sm:px-2"
           onMouseEnter={() => {
             if (state.showAppleMenu) toggleAppleMenu();
           }}
@@ -197,12 +195,11 @@ const TopBar = (props: TopBarProps) => {
         />
       )}
 
-      <div className="hstack flex-row justify-end space-x-2">
-        <TopBarItem hideOnMobile={true}>
+      <div className="hstack flex-none flex-row justify-end space-x-0.5 sm:space-x-2">
+        <TopBarItem>
           <Battery />
         </TopBarItem>
         <TopBarItem
-          hideOnMobile={true}
           forceHover={state.showWifiMenu}
           onClick={toggleWifiMenu}
           ref={wifiBtnRef}
@@ -242,7 +239,7 @@ const TopBar = (props: TopBarProps) => {
         )}
 
         <TopBarItem>
-          <span>{format(state.date, "eee MMM d")}</span>
+          <span className="hidden sm:inline">{format(state.date, "eee MMM d")}</span>
           <span>{format(state.date, "h:mm aa")}</span>
         </TopBarItem>
       </div>

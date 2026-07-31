@@ -14,6 +14,10 @@ interface TerminalState {
   content: JSX.Element[];
 }
 
+interface TerminalProps {
+  compact?: boolean;
+}
+
 // rain animation is adopted from: https://codepen.io/P3R0/pen/MwgoKv
 const HowDare = ({ setRMRF }: { setRMRF: (value: boolean) => void }) => {
   const FONT_SIZE = 12;
@@ -84,7 +88,7 @@ const HowDare = ({ setRMRF }: { setRMRF: (value: boolean) => void }) => {
   );
 };
 
-export default class Terminal extends React.Component<{}, TerminalState> {
+export default class Terminal extends React.Component<TerminalProps, TerminalState> {
   private history = [] as string[];
   private curHistory = 0;
   private curInputTimes = 0;
@@ -94,7 +98,7 @@ export default class Terminal extends React.Component<{}, TerminalState> {
     [key: string]: { (): void } | { (arg?: string): void };
   };
 
-  constructor(props: {}) {
+  constructor(props: TerminalProps) {
     super(props);
     this.state = {
       content: [],
@@ -188,7 +192,11 @@ export default class Terminal extends React.Component<{}, TerminalState> {
     }
     this.generateResultRow(
       this.curInputTimes,
-      <div className="grid grid-cols-4 w-full">{result}</div>
+      <div
+        className={`grid w-full ${this.props.compact ? "grid-cols-2" : "grid-cols-4"}`}
+      >
+        {result}
+      </div>
     );
   };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { apps, wallpapers } from "~/configs";
-import { minMarginY } from "~/utils";
+import { isCompactViewport, minMarginY } from "~/utils";
 import type { MacActions } from "~/types";
 
 interface DesktopState {
@@ -76,7 +76,7 @@ export default function Desktop(props: MacActions) {
     getAppsData();
   }, []);
 
-  const toggleLaunchpad = (target: boolean): void => {
+  const animateLaunchpad = (target: boolean): void => {
     const r = document.querySelector(`#launchpad`) as HTMLElement;
     if (target) {
       r.style.transform = "scale(1)";
@@ -85,12 +85,15 @@ export default function Desktop(props: MacActions) {
       r.style.transform = "scale(1.1)";
       r.style.transition = "ease-out 0.2s";
     }
+  };
 
-    setState({ ...state, showLaunchpad: target });
+  const toggleLaunchpad = (target: boolean): void => {
+    animateLaunchpad(target);
+    setState((current) => ({ ...current, showLaunchpad: target }));
   };
 
   const toggleSpotlight = (): void => {
-    setState({ ...state, spotlight: !state.spotlight });
+    setState((current) => ({ ...current, spotlight: !current.spotlight }));
   };
 
   const setWindowPosition = (id: string): void => {
@@ -109,27 +112,35 @@ export default function Desktop(props: MacActions) {
   };
 
   const setAppMax = (id: string, target?: boolean): void => {
-    const maxApps = state.maxApps;
-    if (target === undefined) target = !maxApps[id];
-    maxApps[id] = target;
-    setState({
-      ...state,
-      maxApps: maxApps,
-      hideDockAndTopbar: target
+    setState((current) => {
+      const nextTarget = target === undefined ? !current.maxApps[id] : target;
+      return {
+        ...current,
+        maxApps: { ...current.maxApps, [id]: nextTarget },
+        hideDockAndTopbar: nextTarget
+      };
     });
   };
 
   const setAppMin = (id: string, target?: boolean): void => {
-    const minApps = state.minApps;
-    if (target === undefined) target = !minApps[id];
-    minApps[id] = target;
-    setState({
-      ...state,
-      minApps: minApps
+    setState((current) => {
+      const nextTarget = target === undefined ? !current.minApps[id] : target;
+      return {
+        ...current,
+        minApps: { ...current.minApps, [id]: nextTarget }
+      };
     });
   };
 
   const minimizeApp = (id: string): void => {
+    const coarsePointer =
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(pointer: coarse)").matches;
+    if (isCompactViewport(window.innerWidth, window.innerHeight, coarsePointer)) {
+      setAppMin(id, true);
+      return;
+    }
+
     setWindowPosition(id);
 
     // get the corrosponding dock icon's position
@@ -152,24 +163,16 @@ export default function Desktop(props: MacActions) {
 
   const closeApp = (id: string): void => {
     setAppMax(id, false);
-    const showApps = state.showApps;
-    showApps[id] = false;
-    setState({
-      ...state,
-      showApps: showApps,
+    setState((current) => ({
+      ...current,
+      showApps: { ...current.showApps, [id]: false },
       hideDockAndTopbar: false
-    });
+    }));
   };
 
   const openApp = (id: string): void => {
-    // add it to the shown app list
-    const showApps = state.showApps;
-    showApps[id] = true;
-
-    // move to the top (use a maximum z-index)
-    const appsZ = state.appsZ;
-    const maxZ = state.maxZ + 1;
-    appsZ[id] = maxZ;
+    // App opening and Launchpad dismissal must be one state transition.
+    animateLaunchpad(false);
 
     // get the title of the currently opened app
     const currentApp = apps.find((app) => {
@@ -179,17 +182,21 @@ export default function Desktop(props: MacActions) {
       throw new TypeError(`App ${id} is undefined.`);
     }
 
-    setState({
-      ...state,
-      showApps: showApps,
-      appsZ: appsZ,
-      maxZ: maxZ,
-      currentTitle: currentApp.title
+    setState((current) => {
+      const maxZ = current.maxZ + 1;
+
+      return {
+        ...current,
+        showLaunchpad: false,
+        showApps: { ...current.showApps, [id]: true },
+        appsZ: { ...current.appsZ, [id]: maxZ },
+        maxZ,
+        currentTitle: currentApp.title
+      };
     });
 
-    const minApps = state.minApps;
     // if the app has already been shown but minimized
-    if (minApps[id]) {
+    if (state.minApps[id]) {
       // move to window's last position
       const r = document.querySelector(`#window-${id}`) as HTMLElement;
       r.style.transform = `translate(${r.style.getPropertyValue(
@@ -197,8 +204,7 @@ export default function Desktop(props: MacActions) {
       )}, ${r.style.getPropertyValue("--window-transform-y")}) scale(1)`;
       r.style.transition = "ease-in 0.3s";
       // remove it from the minimized app list
-      minApps[id] = false;
-      setState({ ...state, minApps });
+      setAppMin(id, false);
     }
   };
 

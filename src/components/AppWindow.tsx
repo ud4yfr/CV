@@ -1,6 +1,12 @@
 import React from "react";
 import { Rnd } from "react-rnd";
-import { minMarginX, minMarginY, appBarHeight } from "~/utils";
+import {
+  minMarginX,
+  minMarginY,
+  appBarHeight,
+  getCompactWindowMetrics,
+  isCompactViewport
+} from "~/utils";
 
 const FullIcon = ({ size }: { size: number }) => (
   <svg
@@ -37,6 +43,7 @@ const ExitFullIcon = ({ size }: { size: number }) => (
 interface TrafficProps {
   id: string;
   max: boolean;
+  compact?: boolean;
   aspectRatio?: number;
   setMax: (id: string, target?: boolean) => void;
   setMin: (id: string) => void;
@@ -64,8 +71,16 @@ interface WindowState {
   y: number;
 }
 
-const TrafficLights = ({ id, close, aspectRatio, max, setMax, setMin }: TrafficProps) => {
-  const disableMax = aspectRatio !== undefined;
+const TrafficLights = ({
+  id,
+  close,
+  aspectRatio,
+  max,
+  compact = false,
+  setMax,
+  setMin
+}: TrafficProps) => {
+  const disableMax = aspectRatio !== undefined || compact;
 
   const closeWindow = (e: React.MouseEvent | React.TouchEvent): void => {
     e.stopPropagation();
@@ -106,6 +121,10 @@ const TrafficLights = ({ id, close, aspectRatio, max, setMax, setMin }: TrafficP
 const Window = (props: WindowProps) => {
   const dockSize = useStore((state) => state.dockSize);
   const { winWidth, winHeight } = useWindowSize();
+  const coarsePointer =
+    typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches;
+  const compact = isCompactViewport(winWidth, winHeight, coarsePointer);
+  const compactMetrics = getCompactWindowMetrics(winWidth, winHeight, dockSize);
 
   const initWidth = Math.min(winWidth, props.width || 640);
   const initHeight = Math.min(winHeight, props.height || 400);
@@ -120,24 +139,25 @@ const Window = (props: WindowProps) => {
   });
 
   useEffect(() => {
-    setState({
-      ...state,
-      width: Math.min(winWidth, state.width),
-      height: Math.min(winHeight, state.height)
-    });
+    setState((current) => ({
+      ...current,
+      width: Math.min(winWidth, current.width),
+      height: Math.min(winHeight, current.height)
+    }));
   }, [winWidth, winHeight]);
 
-  const round = props.max ? "rounded-none" : "rounded-lg";
+  const round = props.max || compact ? "rounded-none" : "rounded-lg";
   const minimized = props.min
     ? "opacity-0 invisible transition-opacity duration-300"
     : "";
-  const border = props.max ? "" : "border border-gray-500/30";
-  const width = props.max ? winWidth : state.width;
-  const height = props.max ? winHeight : state.height;
-  const disableMax = props.aspectRatio !== undefined;
+  const border = props.max || compact ? "" : "border border-gray-500/30";
+  const width = compact ? compactMetrics.width : props.max ? winWidth : state.width;
+  const height = compact ? compactMetrics.height : props.max ? winHeight : state.height;
+  const disableMax = props.aspectRatio !== undefined || compact;
 
   const children = React.cloneElement(props.children as React.ReactElement, {
-    width: width
+    width,
+    compact
   });
 
   return (
@@ -148,24 +168,28 @@ const Window = (props: WindowProps) => {
         height: height
       }}
       position={{
-        x: props.max
-          ? winWidth // because of boundary
-          : Math.min(
-              // "winWidth * 2" because of the boundary for windows
-              winWidth * 2 - minMarginX,
-              Math.max(
-                // "+ winWidth" because we add a boundary for windows
-                winWidth - state.width + minMarginX,
-                state.x
+        x: compact
+          ? compactMetrics.x
+          : props.max
+            ? winWidth // because of boundary
+            : Math.min(
+                // "winWidth * 2" because of the boundary for windows
+                winWidth * 2 - minMarginX,
+                Math.max(
+                  // "+ winWidth" because we add a boundary for windows
+                  winWidth - state.width + minMarginX,
+                  state.x
+                )
+              ),
+        y: compact
+          ? compactMetrics.y
+          : props.max
+            ? -minMarginY // because of boundary
+            : Math.min(
+                // "- minMarginY" because of the boundary for windows
+                winHeight - minMarginY - (dockSize + 15 + minMarginY),
+                Math.max(0, state.y)
               )
-            ),
-        y: props.max
-          ? -minMarginY // because of boundary
-          : Math.min(
-              // "- minMarginY" because of the boundary for windows
-              winHeight - minMarginY - (dockSize + 15 + minMarginY),
-              Math.max(0, state.y)
-            )
       }}
       onDragStop={(e, d) => {
         setState({ ...state, x: d.x, y: d.y });
@@ -178,16 +202,18 @@ const Window = (props: WindowProps) => {
           ...position
         });
       }}
-      minWidth={props.minWidth ? props.minWidth : 200}
-      minHeight={props.minHeight ? props.minHeight : 150}
+      minWidth={compact ? width : props.minWidth ? props.minWidth : 200}
+      minHeight={compact ? height : props.minHeight ? props.minHeight : 150}
       dragHandleClassName="window-bar"
-      disableDragging={props.max}
-      enableResizing={!props.max}
-      lockAspectRatio={props.aspectRatio}
-      lockAspectRatioExtraHeight={props.aspectRatio ? appBarHeight : undefined}
+      disableDragging={props.max || compact}
+      enableResizing={!props.max && !compact}
+      lockAspectRatio={compact ? false : props.aspectRatio}
+      lockAspectRatioExtraHeight={
+        !compact && props.aspectRatio ? appBarHeight : undefined
+      }
       style={{ zIndex: props.z }}
       onMouseDown={() => props.focus(props.id)}
-      className={`overflow-hidden ${round} ${border} shadow-lg shadow-black/30 ${minimized}`}
+      className={`overflow-hidden ${compact ? "compact-window" : ""} ${round} ${border} shadow-lg shadow-black/30 ${minimized}`}
       id={`window-${props.id}`}
     >
       <div
@@ -197,6 +223,7 @@ const Window = (props: WindowProps) => {
         <TrafficLights
           id={props.id}
           max={props.max}
+          compact={compact}
           aspectRatio={props.aspectRatio}
           setMax={props.setMax}
           setMin={props.setMin}

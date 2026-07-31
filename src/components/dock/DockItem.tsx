@@ -7,6 +7,7 @@ import {
   useTransform,
   type MotionValue
 } from "framer-motion";
+import { isCompactViewport } from "~/utils";
 
 // Hover effect is adopted from https://github.com/PuruVJ/macos-web/blob/main/src/components/dock/DockItem.tsx
 
@@ -91,13 +92,20 @@ export default function DockItem({
 }: DockItemProps) {
   const imgRef = useRef<HTMLImageElement>(null);
   const { width } = useDockHoverAnimation(mouseX, imgRef, dockSize, dockMag);
-  const { winWidth } = useWindowSize();
+  const { winWidth, winHeight } = useWindowSize();
+  const coarsePointer =
+    typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches;
+  const compact = isCompactViewport(winWidth, winHeight, coarsePointer);
+  const compactIconStyle = {
+    width: `${dockSize / 16}rem`,
+    minWidth: `${dockSize / 16}rem`
+  };
 
   return (
     <li
       id={`dock-${id}`}
       onClick={desktop || id === "launchpad" ? () => openApp(id) : () => {}}
-      className="relative flex flex-col justify-end mb-1"
+      className="relative flex flex-none flex-col justify-end mb-1"
     >
       <p
         className="tooltip absolute inset-x-0 mx-auto w-max rounded-md bg-c-300/80"
@@ -114,7 +122,7 @@ export default function DockItem({
             alt={title}
             title={title}
             draggable={false}
-            style={winWidth < 640 ? {} : { width, willChange: "width" }}
+            style={compact ? compactIconStyle : { width, willChange: "width" }}
           />
         </a>
       ) : (
@@ -124,7 +132,7 @@ export default function DockItem({
           alt={title}
           title={title}
           draggable={false}
-          style={winWidth < 640 ? {} : { width, willChange: "width" }}
+          style={compact ? compactIconStyle : { width, willChange: "width" }}
         />
       )}
       <div

@@ -28,14 +28,14 @@ export default function Launchpad({ show, toggleLaunchpad }: LaunchpadProps) {
 
   return (
     <div
-      className={`${close} z-30 transform scale-110 size-full fixed overflow-hidden bg-center bg-cover`}
+      className={`${close} z-30 fixed size-full transform overflow-x-hidden overflow-y-auto bg-cover bg-center scale-100 sm:scale-110`}
       id="launchpad"
       style={{
         backgroundImage: `url(${dark ? wallpapers.night : wallpapers.day})`
       }}
       onClick={() => toggleLaunchpad(false)}
     >
-      <div className="size-full absolute bg-gray-900/20 backdrop-blur-2xl">
+      <div className="absolute min-h-full w-full bg-gray-900/20 backdrop-blur-2xl">
         <div
           className="mx-auto flex h-7 w-64 mt-5 bg-gray-200/10"
           border="1 rounded-md gray-200/30"
@@ -69,7 +69,10 @@ export default function Launchpad({ show, toggleLaunchpad }: LaunchpadProps) {
                 href={app.link}
                 target="_blank"
                 rel="noreferrer"
-                onClick={(e) => e.stopPropagation()}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleLaunchpad(false);
+                }}
               >
                 <img src={app.img} alt={app.title} title={app.title} />
               </a>

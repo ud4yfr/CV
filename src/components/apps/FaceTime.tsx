@@ -3,6 +3,7 @@ import { format } from "date-fns";
 
 interface SidebarProps {
   state: FaceTimeState;
+  compact: boolean;
   onTake: () => void;
   onSave: () => void;
   onSelect: (src: string) => void;
@@ -56,14 +57,22 @@ const SidebarItem = ({ date, active }: SidebarItemProps) => {
   );
 };
 
-const Sidebar = ({ state, onTake, onSave, onSelect }: SidebarProps) => {
+const Sidebar = ({ state, compact, onTake, onSave, onSelect }: SidebarProps) => {
   const { images } = useStore((state) => ({
     images: state.faceTimeImages
   }));
 
   return (
-    <div className="absolute w-74 h-full z-1 left-0 top-0 flex flex-col bg-zinc-900/85 backdrop-blur-xl">
-      <div className="p-5 space-y-2.5 text-sm">
+    <div
+      className={`absolute z-1 left-0 flex bg-zinc-900/85 backdrop-blur-xl ${
+        compact ? "bottom-0 h-24 w-full flex-row" : "top-0 h-full w-74 flex-col"
+      }`}
+    >
+      <div
+        className={
+          compact ? "flex w-full space-x-2 p-2 text-sm" : "p-5 space-y-2.5 text-sm"
+        }
+      >
         <button
           className="flex-center space-x-1 w-full py-1 text-white bg-green-700 rounded-md"
           onClick={onTake}
@@ -87,7 +96,10 @@ const Sidebar = ({ state, onTake, onSave, onSelect }: SidebarProps) => {
         </button>
       </div>
 
-      <div className="text-xs flex-1 overflow-y-scroll" p="t-5 b-2.5 x-2.5">
+      <div
+        className={`text-xs flex-1 overflow-y-scroll ${compact ? "hidden" : ""}`}
+        p="t-5 b-2.5 x-2.5"
+      >
         <div className="px-2.5 text-white/60 mb-2">Recent</div>
         {Object.keys(images)
           .reverse()
@@ -105,7 +117,7 @@ const Sidebar = ({ state, onTake, onSave, onSelect }: SidebarProps) => {
   );
 };
 
-const FaceTime = () => {
+const FaceTime = ({ compact = false }: { compact?: boolean }) => {
   const webcamRef = useRef<Webcam>(null);
   const { addImage } = useStore((state) => ({
     addImage: state.addFaceTimeImage
@@ -119,6 +131,7 @@ const FaceTime = () => {
     <div className="relative h-full">
       <Sidebar
         state={state}
+        compact={compact}
         onTake={() => {
           if (!state.curImage) {
             const src = webcamRef.current?.getScreenshot() || "";
@@ -137,6 +150,7 @@ const FaceTime = () => {
       <div className="h-full bg-zinc-800">
         {!state.curImage ? (
           <Webcam
+            className="size-full object-cover"
             mirrored={true}
             audio={false}
             ref={webcamRef}

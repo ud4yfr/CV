@@ -5,3 +5,11 @@
 html, body, #root {
   @apply h-full overflow-hidden;
 }
+
+html,
+body,
+#root {
+  height: 100dvh;
+  width: 100%;
+  overscroll-behavior: none;
+}

@@ -11,6 +11,7 @@ import type { BearMdData } from "~/types";
 interface ContentProps {
   contentID: string;
   contentURL: string;
+  compact?: boolean;
 }
 
 interface MiddlebarProps {
@@ -148,7 +149,7 @@ const fixImageURL = (text: string, contentURL: string): string => {
   return text;
 };
 
-const Content = ({ contentID, contentURL }: ContentProps) => {
+const Content = ({ contentID, contentURL, compact = false }: ContentProps) => {
   const [storeMd, setStoreMd] = useState<{ [key: string]: string }>({});
   const dark = useStore((state) => state.dark);
 
@@ -172,7 +173,11 @@ const Content = ({ contentID, contentURL }: ContentProps) => {
   }, [contentID, contentURL, fetchMarkdown]);
 
   return (
-    <div className="markdown w-2/3 mx-auto px-2 py-6 text-c-700">
+    <div
+      className={`markdown mx-auto px-3 py-5 text-c-700 sm:px-2 sm:py-6 ${
+        compact ? "w-full" : "w-2/3"
+      }`}
+    >
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[
@@ -187,7 +192,11 @@ const Content = ({ contentID, contentURL }: ContentProps) => {
   );
 };
 
-const Bear = () => {
+interface BearProps {
+  compact?: boolean;
+}
+
+const Bear = ({ compact = false }: BearProps) => {
   const [state, setState] = useState<BearState>({
     curSidebar: 0,
     curMidbar: 0,
@@ -217,19 +226,63 @@ const Bear = () => {
 
   return (
     <div className="bear font-avenir flex h-full">
-      <div className="w-44 overflow-auto bg-gray-700">
-        <Sidebar cur={state.curSidebar} setMidBar={setMidBar} />
-      </div>
-      <div className="w-60 overflow-auto" bg="gray-50 dark:gray-800" border="r c-300">
-        <Middlebar
-          items={state.midbarList}
-          cur={state.curMidbar}
-          setContent={setContent}
-        />
-      </div>
-      <div className="flex-1 overflow-auto" bg="gray-50 dark:gray-800">
-        <Content contentID={state.contentID} contentURL={state.contentURL} />
-      </div>
+      {compact ? (
+        <div className="flex min-w-0 flex-1 flex-col" bg="gray-50 dark:gray-800">
+          <div className="flex flex-none overflow-x-auto bg-gray-700 px-2 py-1.5">
+            {bear.map((item, index) => (
+              <button
+                key={`bear-mobile-section-${item.id}`}
+                className={`mr-1.5 flex-none rounded-md px-3 py-1.5 text-sm text-white ${
+                  state.curSidebar === index ? "bg-blue-500" : "bg-gray-600"
+                }`}
+                aria-pressed={state.curSidebar === index}
+                onClick={() => setMidBar(item.md, index)}
+              >
+                {item.title}
+              </button>
+            ))}
+          </div>
+          <div className="flex flex-none overflow-x-auto px-2 py-1.5" border="b c-300">
+            {state.midbarList.map((item, index) => (
+              <button
+                key={`bear-mobile-note-${item.id}`}
+                className={`mr-1.5 flex-none rounded-md px-3 py-1.5 text-sm ${
+                  state.curMidbar === index
+                    ? "bg-blue-500 text-white"
+                    : "bg-c-200 text-c-700"
+                }`}
+                aria-pressed={state.curMidbar === index}
+                onClick={() => setContent(item.id, item.file, index)}
+              >
+                {item.title}
+              </button>
+            ))}
+          </div>
+          <div className="min-h-0 flex-1 overflow-auto">
+            <Content
+              contentID={state.contentID}
+              contentURL={state.contentURL}
+              compact={true}
+            />
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="w-44 overflow-auto bg-gray-700">
+            <Sidebar cur={state.curSidebar} setMidBar={setMidBar} />
+          </div>
+          <div className="w-60 overflow-auto" bg="gray-50 dark:gray-800" border="r c-300">
+            <Middlebar
+              items={state.midbarList}
+              cur={state.curMidbar}
+              setContent={setContent}
+            />
+          </div>
+          <div className="flex-1 overflow-auto" bg="gray-50 dark:gray-800">
+            <Content contentID={state.contentID} contentURL={state.contentURL} />
+          </div>
+        </>
+      )}
     </div>
   );
 };

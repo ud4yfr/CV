@@ -284,12 +284,18 @@ export default function Spotlight({
         )}
       </div>
       {searchText !== "" && (
-        <div flex h-85 bg-transparent border="t menu">
-          <div w="32 sm:72" border="r menu" p="x-2.5" overflow-y-scroll>
+        <div className="spotlight-results" flex h-85 bg-transparent border="t menu">
+          <div
+            className="spotlight-list"
+            w="32 sm:72"
+            border="r menu"
+            p="x-2.5"
+            overflow-y-scroll
+          >
             {appList}
           </div>
           {curDetails && (
-            <div className="flex-1 vstack">
+            <div className="spotlight-details flex-1 vstack">
               <div className="w-4/5 h-56" flex="center col" border="b menu">
                 <img
                   w-32

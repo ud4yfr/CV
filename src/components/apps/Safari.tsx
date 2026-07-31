@@ -10,6 +10,7 @@ interface SafariState {
 
 interface SafariProps {
   width?: number;
+  compact?: boolean;
 }
 
 interface NavProps {
@@ -131,7 +132,7 @@ const NoInternetPage = () => {
   );
 };
 
-const Safari = ({ width }: SafariProps) => {
+const Safari = ({ width, compact = false }: SafariProps) => {
   const wifi = useStore((state) => state.wifi);
   const [state, setState] = useState<SafariState>({
     goURL: "",
@@ -160,14 +161,18 @@ const Safari = ({ width }: SafariProps) => {
   };
 
   const buttonColor = state.goURL === "" ? "text-c-400" : "text-c-700";
-  const grid = (width as number) < 640 ? "grid-cols-2" : "grid-cols-3";
-  const hideLast = (width as number) < 640 ? "hidden" : "flex";
+  const compactToolbar = compact || (width as number) < 640;
+  const hideLast = compactToolbar ? "hidden" : "flex";
 
   return (
     <div className="w-full h-full">
       {/* browser topbar */}
-      <div className={`h-10 grid ${grid} items-center bg-c-white`}>
-        <div className="flex px-2">
+      <div
+        className={`h-10 items-center bg-c-white ${
+          compactToolbar ? "flex" : "grid grid-cols-3"
+        }`}
+      >
+        <div className="flex flex-none px-2">
           <button
             className={`safari-btn w-7 ${buttonColor}`}
             onClick={() => setGoURL("")}
@@ -181,8 +186,10 @@ const Safari = ({ width }: SafariProps) => {
             <span className="i-bi:layout-sidebar text-sm" />
           </button>
         </div>
-        <div className="hstack space-x-2 px-2">
-          <button className="safari-btn w-9 -ml-10 text-c-400">
+        <div className="hstack min-w-0 flex-1 space-x-2 px-2">
+          <button
+            className={`safari-btn w-9 text-c-400 ${compactToolbar ? "" : "-ml-10"}`}
+          >
             <span className="i-fa-solid:shield-alt text-sm" />
           </button>
           <input
